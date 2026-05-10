@@ -28,53 +28,51 @@ const state_to_anim := {
 var time := 0.0
 const GRID_SIZE := 16
 
-func _physics_process(delta: float) -> void:
-	move(delta)
-	animated_sprite.play(state_to_anim[movement_state] + "_" + dir_to_anim[dir])
-	move_and_slide()
+@export var walk_speed = 1.0 # Velocità di camminata
+@export var tile_size = 16   # Dimensione della cella
 
-func move(dt: float) -> void:
-	var move = Vector2(Input.get_axis(dir_to_anim[MovementDirection.Left], dir_to_anim[MovementDirection.Right]),Input.get_axis(dir_to_anim[MovementDirection.Back],dir_to_anim[MovementDirection.Front]))
-	match movement_state:
-		MovementState.Idle:
-			if move:
-				update_dir(move)
-				movement_state = MovementState.Turning
-			else:
-				velocity.x = move_toward(velocity.x, 0., 300.)
-				velocity.y = move_toward(velocity.y, 0., 300.)
-		MovementState.Turning:
-			if time >= hold_treshold:
-				if move:
-					if Input.is_action_pressed("run"):
-						movement_state = MovementState.Running
-					else:
-						movement_state = MovementState.Walking
-				else:
-					movement_state = MovementState.Idle
-			time += dt
-		MovementState.Walking:
-			if !move:
-				movement_state = MovementState.Idle
-				return
-			update_dir(move)
-			velocity = move * 300.
-		MovementState.Running:
-			if !move:
-				movement_state = MovementState.Idle
-				return
-			update_dir(move)
-			velocity = move * 450.
+var is_moving = false
+var target_position = Vector2.ZERO
+var input_direction = Vector2.ZERO
 
-func update_dir(move: Vector2) -> void:
-	if move.y > 0:
-		dir = MovementDirection.Front
-	elif move.y < 0:
-		dir = MovementDirection.Back
-	elif move.x > 0:
-		dir = MovementDirection.Right
-	elif move.x < 0:
-		dir = MovementDirection.Left
+func _ready():
+	# Allinea il giocatore alla griglia all'inizio
+	position = position.snapped(Vector2(tile_size, tile_size)) + Vector2(tile_size / 2, tile_size / 2)
+	target_position = position
+
+func _physics_process(delta):
+	if is_moving:
+		move_player(delta)
+	else:
+		get_input()
+
+func get_input():
+	input_direction = Vector2.ZERO
+	
+	# Priorità agli assi per evitare movimenti diagonali
+	if Input.is_action_pressed("right"):
+		input_direction = Vector2.RIGHT
+		print("Check")
+	elif Input.is_action_pressed("left"):
+		input_direction = Vector2.LEFT
+	elif Input.is_action_pressed("back"):
+		input_direction = Vector2.UP
+	elif Input.is_action_pressed("front"):
+		input_direction = Vector2.DOWN
+	
+	$RayCast2D.target_position = input_direction * tile_size
+	
+	if input_direction != Vector2.ZERO and !$RayCast2D.is_colliding():
+		target_position = position + input_direction * tile_size
+		is_moving = true
+
+func move_player(delta):
+	# Muoviamo il personaggio verso la target_position
+	position = position.move_toward(target_position, walk_speed)
+	
+	# Se siamo arrivati a destinazione, resettiamo
+	if position == target_position:
+		is_moving = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot_base"):

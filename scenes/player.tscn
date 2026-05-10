@@ -310,20 +310,24 @@ collision_layer = 2
 collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_g2els")
+movement_state = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=389651738]
+shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=505981096]
 zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=389651738]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_g2els")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1594878344]
-position = Vector2(-3.5762787e-07, -16)
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"run_right"
 autoplay = "idle_front"
-frame_progress = 0.9259319
+frame_progress = 0.58045983
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=706420916]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=675675989]
+target_position = Vector2(16, 0)
+collision_mask = 5

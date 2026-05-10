@@ -188,13 +188,13 @@ terrain_set_1/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_iywne")
 sources/1 = SubResource("TileSetAtlasSource_p57ef")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_264po"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
 texture = ExtResource("4_kvpfn")
 0:0/size_in_atlas = Vector2i(2, 3)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 12, 16, 12, 16, 24, -16, 24)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kice"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvuet"]
 texture = ExtResource("5_dinhu")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -240,23 +240,23 @@ texture = ExtResource("5_dinhu")
 1:1/0/terrains_peering_bit/top_left_corner = 0
 1:1/0/terrains_peering_bit/top_right_corner = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5newe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
 texture = ExtResource("6_kvuet")
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37s47"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
 texture = ExtResource("7_trtic")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bt5mj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ca42v"]
 texture = ExtResource("8_ir15t")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e1j6l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rysoc"]
 texture = ExtResource("9_ca42v")
 0:0/0 = 0
 1:0/0 = 0
@@ -264,30 +264,30 @@ texture = ExtResource("9_ca42v")
 3:0/0 = 0
 4:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pl11u"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssvqc"]
 texture = ExtResource("10_rysoc")
 0:0/size_in_atlas = Vector2i(5, 5)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhx41"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_264po"]
 texture = ExtResource("11_ssvqc")
 0:0/size_in_atlas = Vector2i(7, 5)
 0:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_qnb83"]
+[sub_resource type="TileSet" id="TileSet_1kice"]
 physics_layer_0/collision_layer = 31
 physics_layer_0/collision_mask = 31
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Fences"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_264po")
-sources/1 = SubResource("TileSetAtlasSource_1kice")
-sources/2 = SubResource("TileSetAtlasSource_5newe")
-sources/3 = SubResource("TileSetAtlasSource_37s47")
-sources/4 = SubResource("TileSetAtlasSource_bt5mj")
-sources/5 = SubResource("TileSetAtlasSource_e1j6l")
-sources/6 = SubResource("TileSetAtlasSource_pl11u")
-sources/7 = SubResource("TileSetAtlasSource_bhx41")
+sources/0 = SubResource("TileSetAtlasSource_dinhu")
+sources/1 = SubResource("TileSetAtlasSource_kvuet")
+sources/2 = SubResource("TileSetAtlasSource_trtic")
+sources/3 = SubResource("TileSetAtlasSource_ir15t")
+sources/4 = SubResource("TileSetAtlasSource_ca42v")
+sources/5 = SubResource("TileSetAtlasSource_rysoc")
+sources/6 = SubResource("TileSetAtlasSource_ssvqc")
+sources/7 = SubResource("TileSetAtlasSource_264po")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
 size = Vector2(14, 14)
@@ -299,6 +299,7 @@ y_sort_enabled = true
 unique_name_in_owner = true
 z_index = 7
 y_sort_enabled = true
+position = Vector2(8, 0)
 
 [node name="Overworld" type="Node2D" parent="." unique_id=184995160]
 
@@ -310,7 +311,7 @@ tile_set = SubResource("TileSet_u5sy4")
 [node name="Objects" type="TileMapLayer" parent="Overworld" unique_id=445601312]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD9/wMAAQABAAEAAAD9/wIAAgABAAAAAAD9/wEAAgABAAAAAAD9/wAAAgABAAAAAAD9////AQABAAEAAAD8/wMAAQABAAEAAAD8/wIAAgABAAAAAAD8/wEAAgABAAAAAAD8/wAAAgABAAAAAAD8////AQABAAEAAAD7/wMAAQABAAEAAAD7/wIAAQABAAEAAAD7/wEAAQABAAEAAAD7/wAAAQABAAEAAAD7////AQABAAEAAAD6/wMAAQABAAEAAAD6/wIAAgABAAAAAAD6/wEAAgABAAAAAAD6/wAAAgABAAAAAAD6////AQABAAEAAAD5/wMAAQABAAEAAAD5/wIAAgABAAAAAAD5/wEAAgABAAAAAAD5/wAAAgABAAAAAAD5////AQABAAEAAAD4/wMAAQABAAEAAAD4/wIAAgABAAAAAAD4/wEAAgABAAAAAAD4/wAAAgABAAAAAAD4////AQABAAEAAAD3/wMAAQABAAEAAAD3/wIAAQABAAEAAAD3/wEAAQABAAEAAAD3/wAAAQABAAEAAAD3////AQABAAEAAAD2/wMAAQABAAEAAAD2/wIAAQABAAEAAAD2/wEAAQABAAEAAAD2/wAAAQABAAEAAAD2////AQABAAEAAAD1/wMAAQABAAEAAAD1/wIAAgABAAAAAAD1/wEAAgABAAAAAAD1/wAAAgABAAAAAAD1////AQABAAEAAAD0/wMAAQABAAEAAAD0/wIAAgABAAAAAAD0/wEAAgABAAAAAAD0/wAAAgABAAAAAAD0////AQABAAEAAADz/wMAAQABAAEAAADz/wIAAgABAAAAAADz/wEAAgABAAAAAADz/wAAAgABAAAAAADz////AQABAAEAAADy/wAAAQAAAAEAAADy////AQAAAAEAAADy//7/AQAAAAAAAADz//7/AQABAAAAAAD0//7/AQABAAAAAADy/wEAAQAAAAEAAADy/wIAAQAAAAEAAADy/wMAAQAAAAEAAAD0/wQAAQABAAIAAADz/wQAAQABAAIAAADy/wQAAQAAAAIAAAD1//7/AQABAAAAAAD1/wQAAQABAAIAAAD2//7/AQABAAAAAAD2/wQAAQABAAIAAAD3//7/AQABAAAAAAD3/wQAAQABAAIAAAD4//7/AQABAAAAAAD4/wQAAQABAAIAAAD5//7/AQABAAAAAAD5/wQAAQABAAIAAAD6//7/AQABAAAAAAD6/wQAAQABAAIAAAD7//7/AQABAAAAAAD7/wQAAQABAAIAAAD8//7/AQABAAAAAAD8/wQAAQABAAIAAAD9//7/AQABAAAAAAD9/wQAAQABAAIAAAD+////AQACAAEAAAD+/wAAAQACAAEAAAD+//7/AQACAAAAAAD+/wEAAQACAAEAAAD+/wIAAQACAAEAAAD+/wMAAQACAAEAAAD+/wQAAQACAAIAAADw/wIAAAAAAAAAAADw/wEAAAAAAAAAAADw/wAAAAAAAAAAAADw////AAAAAAAAAADw//7/AAAAAAAAAADw//3/AAAAAAAAAADw//z/AAAAAAAAAADw//v/AAAAAAAAAADw//r/AAAAAAAAAADw//n/AAAAAAAAAADx//j/AAAAAAAAAADy//n/AAAAAAAAAADz//j/AAAAAAAAAAD0//n/AAAAAAAAAAD1//j/AAAAAAAAAAD2//n/AAAAAAAAAAD3//j/AAAAAAAAAAD4//n/AAAAAAAAAAD6//n/AAAAAAAAAAD8//n/AAAAAAAAAAD5//j/AAAAAAAAAAD7//j/AAAAAAAAAAD9//j/AAAAAAAAAAD+//n/AAAAAAAAAAD///j/AAAAAAAAAAAAAPn/AAAAAAAAAAABAPj/AAAAAAAAAAACAPn/AAAAAAAAAAADAPj/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPj/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPj/AAAAAAAAAAAJAPj/AAAAAAAAAAALAPj/AAAAAAAAAAANAPj/AAAAAAAAAAAPAPj/AAAAAAAAAAARAPj/AAAAAAAAAAATAPj/AAAAAAAAAAAVAPj/AAAAAAAAAAAXAPj/AAAAAAAAAAAIAPn/AAAAAAAAAAAKAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAAOAPn/AAAAAAAAAAAQAPn/AAAAAAAAAAASAPn/AAAAAAAAAAAUAPn/AAAAAAAAAAAWAPn/AAAAAAAAAAAYAPn/AAAAAAAAAADw/wMAAAAAAAAAAADw/wQAAAAAAAAAAADw/wUAAAAAAAAAAADw/wYAAAAAAAAAAADw/wcAAAAAAAAAAADw/wgAAAAAAAAAAADy/wgAAAAAAAAAAAD0/wgAAAAAAAAAAAD2/wgAAAAAAAAAAAD4/wgAAAAAAAAAAAD6/wgAAAAAAAAAAAD8/wgAAAAAAAAAAAAAAAMAAgABAAAAAAABAAMAAgABAAAAAAAAAAQAAgABAAAAAAABAAQAAgABAAAAAAAAAAUAAgABAAAAAAABAAUAAgABAAAAAAAJAAUABQAAAAAAAAALAAQABQAAAAAAAAANAAgABQAAAAAAAAAIAP3/BQAAAAAAAAAMAP3/BQAAAAAAAAD///z/BQAAAAAAAAD6//v/BQAAAAAAAAD1//z/BQAAAAAAAAD9//3/BQAAAAAAAAAUAP3/BQAAAAAAAAAUAP7/BQAAAAAAAAAUAAgABQAAAAAAAAATAAYABQAAAAAAAAA=")
-tile_set = SubResource("TileSet_qnb83")
+tile_set = SubResource("TileSet_1kice")
 
 [node name="Grass1" type="Area2D" parent="Overworld/Objects" unique_id=1326427355]
 collision_layer = 0
