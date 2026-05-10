@@ -279,6 +279,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1007184041]
+motion_mode = 1
 script = ExtResource("1_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=505981096]
