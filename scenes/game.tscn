@@ -274,7 +274,8 @@ texture = ExtResource("11_ssvqc")
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_qnb83"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 31
+physics_layer_0/collision_mask = 31
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Fences"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -293,6 +294,8 @@ y_sort_enabled = true
 [node name="Player" parent="." unique_id=1007184041 instance=ExtResource("1_uwrxv")]
 z_index = 7
 y_sort_enabled = true
+collision_layer = 2
+collision_mask = 21
 
 [node name="Overworld" type="Node2D" parent="." unique_id=184995160]
 

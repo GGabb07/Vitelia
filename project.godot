@@ -11,9 +11,19 @@ config_version=5
 [application]
 
 config/name="Vitelia"
+config/description="Gioco con stile pokemon ma con cui non ha nessuna relazione, dovrò avere un plot satirico sull'italia"
+config/version="0.0.1"
 run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0.07626668, 0.26, 0.051999994, 1)
+boot_splash/image="uid://c4jayxmyua4w0"
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
 
 [input]
 
@@ -50,7 +60,11 @@ shoot_caricato={
 
 [layer_names]
 
-2d_physics/layer_16="Player"
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="PlayerProjectile"
+2d_physics/layer_5="EnemyProjectile"
 
 [physics]
 
@@ -60,3 +74,4 @@ shoot_caricato={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true

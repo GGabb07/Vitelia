@@ -279,6 +279,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1007184041]
+collision_layer = 2
+collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_g2els")
 

@@ -42,6 +42,7 @@ func move() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot_base"):
 		var instance = PROIETTILE_BASE_FREDDO.instantiate() as ProiettileBaseFreddo
-		instance.dir = (get_global_mouse_position() - global_position).normalized()
-		instance.position = global_position
+		instance.dir = (get_global_mouse_position() - $CollisionShape2D.global_position).normalized()
+		instance.position = $CollisionShape2D.global_position
+		instance.z_index = 7
 		get_parent().add_child(instance)
