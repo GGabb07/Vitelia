@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://7iy6qs73ssr2" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cpvu8v17i5ob8" path="res://assets/Player/Male_Spritesheet.png" id="2_qhqgy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
-radius = 6.0827627
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -286,10 +286,11 @@ zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=389651738]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_yqjtg")
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=20582004]
+position = Vector2(8, -4)
 texture = ExtResource("2_qhqgy")
 hframes = 3
 vframes = 3
