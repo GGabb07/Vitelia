@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://sjae4y2rqcd2"]
+
+[ext_resource type="Texture2D" uid="uid://c8chylnnwjair" path="res://assets/Pokemon/Pokemon90.png" id="1_pv8lr"]
+[ext_resource type="Script" uid="uid://bxqhsbq5s8fxy" path="res://scenes/freddo/proiettile_base_freddo.gd" id="1_qx5ed"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qx5ed"]
+radius = 7.0
+
+[node name="ProiettileFreddo" type="CharacterBody2D" unique_id=1260005198]
+script = ExtResource("1_qx5ed")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1545160110]
+texture = ExtResource("1_pv8lr")
+region_enabled = true
+region_rect = Rect2(39, 13, 17, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=883114704]
+shape = SubResource("CircleShape2D_qx5ed")
+
+[node name="Timer" type="Timer" parent="." unique_id=745840522]
+process_callback = 0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
