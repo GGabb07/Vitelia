@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://db84et6sovmu3" path="res://assets/Flowers/red_flower.png" id="9_ca42v"]
 [ext_resource type="Texture2D" uid="uid://cdtcawkx6lrao" path="res://assets/Buildings/house1.png" id="10_rysoc"]
 [ext_resource type="Texture2D" uid="uid://cri3h02verdbo" path="res://assets/Buildings/oaks_lab.png" id="11_ssvqc"]
+[ext_resource type="Script" uid="uid://dle6fuetc4f5f" path="res://scripts/grass.gd" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("2_lnu2h")
@@ -288,14 +289,16 @@ sources/5 = SubResource("TileSetAtlasSource_e1j6l")
 sources/6 = SubResource("TileSetAtlasSource_pl11u")
 sources/7 = SubResource("TileSetAtlasSource_bhx41")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
+size = Vector2(14, 14)
+
 [node name="Game" type="Node2D" unique_id=1642279183]
 y_sort_enabled = true
 
 [node name="Player" parent="." unique_id=1007184041 instance=ExtResource("1_uwrxv")]
+unique_name_in_owner = true
 z_index = 7
 y_sort_enabled = true
-collision_layer = 2
-collision_mask = 21
 
 [node name="Overworld" type="Node2D" parent="." unique_id=184995160]
 
@@ -306,5 +309,336 @@ tile_set = SubResource("TileSet_u5sy4")
 
 [node name="Objects" type="TileMapLayer" parent="Overworld" unique_id=445601312]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD9/wMAAQABAAEAAAD9/wIAAgABAAAAAAD9/wEAAgABAAAAAAD9/wAAAgABAAAAAAD9////AQABAAEAAAD8/wMAAQABAAEAAAD8/wIAAgABAAAAAAD8/wEAAgABAAAAAAD8/wAAAgABAAAAAAD8////AQABAAEAAAD7/wMAAQABAAEAAAD7/wIAAQABAAEAAAD7/wEAAQABAAEAAAD7/wAAAQABAAEAAAD7////AQABAAEAAAD6/wMAAQABAAEAAAD6/wIAAgABAAAAAAD6/wEAAgABAAAAAAD6/wAAAgABAAAAAAD6////AQABAAEAAAD5/wMAAQABAAEAAAD5/wIAAgABAAAAAAD5/wEAAgABAAAAAAD5/wAAAgABAAAAAAD5////AQABAAEAAAD4/wMAAQABAAEAAAD4/wIAAgABAAAAAAD4/wEAAgABAAAAAAD4/wAAAgABAAAAAAD4////AQABAAEAAAD3/wMAAQABAAEAAAD3/wIAAQABAAEAAAD3/wEAAQABAAEAAAD3/wAAAQABAAEAAAD3////AQABAAEAAAD2/wMAAQABAAEAAAD2/wIAAQABAAEAAAD2/wEAAQABAAEAAAD2/wAAAQABAAEAAAD2////AQABAAEAAAD1/wMAAQABAAEAAAD1/wIAAgABAAAAAAD1/wEAAgABAAAAAAD1/wAAAgABAAAAAAD1////AQABAAEAAAD0/wMAAQABAAEAAAD0/wIAAgABAAAAAAD0/wEAAgABAAAAAAD0/wAAAgABAAAAAAD0////AQABAAEAAADz/wMAAQABAAEAAADz/wIAAgABAAAAAADz/wEAAgABAAAAAADz/wAAAgABAAAAAADz////AQABAAEAAADy/wAAAQAAAAEAAADy////AQAAAAEAAADy//7/AQAAAAAAAADz//7/AQABAAAAAAD0//7/AQABAAAAAADy/wEAAQAAAAEAAADy/wIAAQAAAAEAAADy/wMAAQAAAAEAAAD0/wQAAQABAAIAAADz/wQAAQABAAIAAADy/wQAAQAAAAIAAAD1//7/AQABAAAAAAD1/wQAAQABAAIAAAD2//7/AQABAAAAAAD2/wQAAQABAAIAAAD3//7/AQABAAAAAAD3/wQAAQABAAIAAAD4//7/AQABAAAAAAD4/wQAAQABAAIAAAD5//7/AQABAAAAAAD5/wQAAQABAAIAAAD6//7/AQABAAAAAAD6/wQAAQABAAIAAAD7//7/AQABAAAAAAD7/wQAAQABAAIAAAD8//7/AQABAAAAAAD8/wQAAQABAAIAAAD9//7/AQABAAAAAAD9/wQAAQABAAIAAAD+////AQACAAEAAAD+/wAAAQACAAEAAAD+//7/AQACAAAAAAD+/wEAAQACAAEAAAD+/wIAAQACAAEAAAD+/wMAAQACAAEAAAD+/wQAAQACAAIAAADw/wIAAAAAAAAAAADw/wEAAAAAAAAAAADw/wAAAAAAAAAAAADw////AAAAAAAAAADw//7/AAAAAAAAAADw//3/AAAAAAAAAADw//z/AAAAAAAAAADw//v/AAAAAAAAAADw//r/AAAAAAAAAADw//n/AAAAAAAAAADx//j/AAAAAAAAAADy//n/AAAAAAAAAADz//j/AAAAAAAAAAD0//n/AAAAAAAAAAD1//j/AAAAAAAAAAD2//n/AAAAAAAAAAD3//j/AAAAAAAAAAD4//n/AAAAAAAAAAD6//n/AAAAAAAAAAD8//n/AAAAAAAAAAD5//j/AAAAAAAAAAD7//j/AAAAAAAAAAD9//j/AAAAAAAAAAD+//n/AAAAAAAAAAD///j/AAAAAAAAAAAAAPn/AAAAAAAAAAABAPj/AAAAAAAAAAACAPn/AAAAAAAAAAADAPj/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPj/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPj/AAAAAAAAAAAJAPj/AAAAAAAAAAALAPj/AAAAAAAAAAANAPj/AAAAAAAAAAAPAPj/AAAAAAAAAAARAPj/AAAAAAAAAAATAPj/AAAAAAAAAAAVAPj/AAAAAAAAAAAXAPj/AAAAAAAAAAAIAPn/AAAAAAAAAAAKAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAAOAPn/AAAAAAAAAAAQAPn/AAAAAAAAAAASAPn/AAAAAAAAAAAUAPn/AAAAAAAAAAAWAPn/AAAAAAAAAAAYAPn/AAAAAAAAAADw/wMAAAAAAAAAAADw/wQAAAAAAAAAAADw/wUAAAAAAAAAAADw/wYAAAAAAAAAAADw/wcAAAAAAAAAAADw/wgAAAAAAAAAAADy/wgAAAAAAAAAAAD0/wgAAAAAAAAAAAD2/wgAAAAAAAAAAAD4/wgAAAAAAAAAAAD6/wgAAAAAAAAAAAD8/wgAAAAAAAAAAAAAAAMAAgABAAAAAAABAAMAAgABAAAAAAAAAAQAAwAAAAAAAAABAAQAAwAAAAAAAAAAAAUAAgABAAAAAAABAAUAAgABAAAAAAAJAAUABQAAAAAAAAALAAQABQAAAAAAAAANAAgABQAAAAAAAAAIAP3/BQAAAAAAAAAMAP3/BQAAAAAAAAD///z/BQAAAAAAAAD6//v/BQAAAAAAAAD1//z/BQAAAAAAAAD9//3/BQAAAAAAAAAUAP3/BQAAAAAAAAAUAP7/BQAAAAAAAAAUAAgABQAAAAAAAAATAAYABQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9/wMAAQABAAEAAAD9/wIAAgABAAAAAAD9/wEAAgABAAAAAAD9/wAAAgABAAAAAAD9////AQABAAEAAAD8/wMAAQABAAEAAAD8/wIAAgABAAAAAAD8/wEAAgABAAAAAAD8/wAAAgABAAAAAAD8////AQABAAEAAAD7/wMAAQABAAEAAAD7/wIAAQABAAEAAAD7/wEAAQABAAEAAAD7/wAAAQABAAEAAAD7////AQABAAEAAAD6/wMAAQABAAEAAAD6/wIAAgABAAAAAAD6/wEAAgABAAAAAAD6/wAAAgABAAAAAAD6////AQABAAEAAAD5/wMAAQABAAEAAAD5/wIAAgABAAAAAAD5/wEAAgABAAAAAAD5/wAAAgABAAAAAAD5////AQABAAEAAAD4/wMAAQABAAEAAAD4/wIAAgABAAAAAAD4/wEAAgABAAAAAAD4/wAAAgABAAAAAAD4////AQABAAEAAAD3/wMAAQABAAEAAAD3/wIAAQABAAEAAAD3/wEAAQABAAEAAAD3/wAAAQABAAEAAAD3////AQABAAEAAAD2/wMAAQABAAEAAAD2/wIAAQABAAEAAAD2/wEAAQABAAEAAAD2/wAAAQABAAEAAAD2////AQABAAEAAAD1/wMAAQABAAEAAAD1/wIAAgABAAAAAAD1/wEAAgABAAAAAAD1/wAAAgABAAAAAAD1////AQABAAEAAAD0/wMAAQABAAEAAAD0/wIAAgABAAAAAAD0/wEAAgABAAAAAAD0/wAAAgABAAAAAAD0////AQABAAEAAADz/wMAAQABAAEAAADz/wIAAgABAAAAAADz/wEAAgABAAAAAADz/wAAAgABAAAAAADz////AQABAAEAAADy/wAAAQAAAAEAAADy////AQAAAAEAAADy//7/AQAAAAAAAADz//7/AQABAAAAAAD0//7/AQABAAAAAADy/wEAAQAAAAEAAADy/wIAAQAAAAEAAADy/wMAAQAAAAEAAAD0/wQAAQABAAIAAADz/wQAAQABAAIAAADy/wQAAQAAAAIAAAD1//7/AQABAAAAAAD1/wQAAQABAAIAAAD2//7/AQABAAAAAAD2/wQAAQABAAIAAAD3//7/AQABAAAAAAD3/wQAAQABAAIAAAD4//7/AQABAAAAAAD4/wQAAQABAAIAAAD5//7/AQABAAAAAAD5/wQAAQABAAIAAAD6//7/AQABAAAAAAD6/wQAAQABAAIAAAD7//7/AQABAAAAAAD7/wQAAQABAAIAAAD8//7/AQABAAAAAAD8/wQAAQABAAIAAAD9//7/AQABAAAAAAD9/wQAAQABAAIAAAD+////AQACAAEAAAD+/wAAAQACAAEAAAD+//7/AQACAAAAAAD+/wEAAQACAAEAAAD+/wIAAQACAAEAAAD+/wMAAQACAAEAAAD+/wQAAQACAAIAAADw/wIAAAAAAAAAAADw/wEAAAAAAAAAAADw/wAAAAAAAAAAAADw////AAAAAAAAAADw//7/AAAAAAAAAADw//3/AAAAAAAAAADw//z/AAAAAAAAAADw//v/AAAAAAAAAADw//r/AAAAAAAAAADw//n/AAAAAAAAAADx//j/AAAAAAAAAADy//n/AAAAAAAAAADz//j/AAAAAAAAAAD0//n/AAAAAAAAAAD1//j/AAAAAAAAAAD2//n/AAAAAAAAAAD3//j/AAAAAAAAAAD4//n/AAAAAAAAAAD6//n/AAAAAAAAAAD8//n/AAAAAAAAAAD5//j/AAAAAAAAAAD7//j/AAAAAAAAAAD9//j/AAAAAAAAAAD+//n/AAAAAAAAAAD///j/AAAAAAAAAAAAAPn/AAAAAAAAAAABAPj/AAAAAAAAAAACAPn/AAAAAAAAAAADAPj/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPj/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPj/AAAAAAAAAAAJAPj/AAAAAAAAAAALAPj/AAAAAAAAAAANAPj/AAAAAAAAAAAPAPj/AAAAAAAAAAARAPj/AAAAAAAAAAATAPj/AAAAAAAAAAAVAPj/AAAAAAAAAAAXAPj/AAAAAAAAAAAIAPn/AAAAAAAAAAAKAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAAOAPn/AAAAAAAAAAAQAPn/AAAAAAAAAAASAPn/AAAAAAAAAAAUAPn/AAAAAAAAAAAWAPn/AAAAAAAAAAAYAPn/AAAAAAAAAADw/wMAAAAAAAAAAADw/wQAAAAAAAAAAADw/wUAAAAAAAAAAADw/wYAAAAAAAAAAADw/wcAAAAAAAAAAADw/wgAAAAAAAAAAADy/wgAAAAAAAAAAAD0/wgAAAAAAAAAAAD2/wgAAAAAAAAAAAD4/wgAAAAAAAAAAAD6/wgAAAAAAAAAAAD8/wgAAAAAAAAAAAAAAAMAAgABAAAAAAABAAMAAgABAAAAAAAAAAQAAgABAAAAAAABAAQAAgABAAAAAAAAAAUAAgABAAAAAAABAAUAAgABAAAAAAAJAAUABQAAAAAAAAALAAQABQAAAAAAAAANAAgABQAAAAAAAAAIAP3/BQAAAAAAAAAMAP3/BQAAAAAAAAD///z/BQAAAAAAAAD6//v/BQAAAAAAAAD1//z/BQAAAAAAAAD9//3/BQAAAAAAAAAUAP3/BQAAAAAAAAAUAP7/BQAAAAAAAAAUAAgABQAAAAAAAAATAAYABQAAAAAAAAA=")
 tile_set = SubResource("TileSet_qnb83")
+
+[node name="Grass1" type="Area2D" parent="Overworld/Objects" unique_id=1326427355]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass1" unique_id=2082323299]
+position = Vector2(24, 88)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass2" type="Area2D" parent="Overworld/Objects" unique_id=192631009]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass2" unique_id=61657448]
+position = Vector2(8, 88)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass3" type="Area2D" parent="Overworld/Objects" unique_id=1383447580]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass3" unique_id=1237028274]
+position = Vector2(24, 72)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass4" type="Area2D" parent="Overworld/Objects" unique_id=75425101]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass4" unique_id=858956646]
+position = Vector2(8, 72)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass5" type="Area2D" parent="Overworld/Objects" unique_id=153668308]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass5" unique_id=1947811857]
+position = Vector2(24, 56)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass6" type="Area2D" parent="Overworld/Objects" unique_id=793511955]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass6" unique_id=912573391]
+position = Vector2(8, 56)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass7" type="Area2D" parent="Overworld/Objects" unique_id=2065332882]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass7" unique_id=1786279452]
+position = Vector2(-40, 40)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass8" type="Area2D" parent="Overworld/Objects" unique_id=1628399077]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass8" unique_id=734827313]
+position = Vector2(-56, 40)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass9" type="Area2D" parent="Overworld/Objects" unique_id=1488676568]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass9" unique_id=422660161]
+position = Vector2(-56, 24)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass10" type="Area2D" parent="Overworld/Objects" unique_id=1504838946]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass10" unique_id=1162523155]
+position = Vector2(-40, 24)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass11" type="Area2D" parent="Overworld/Objects" unique_id=1490873765]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass11" unique_id=1172371158]
+position = Vector2(-40, 8)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass12" type="Area2D" parent="Overworld/Objects" unique_id=50826344]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass12" unique_id=1556554647]
+position = Vector2(-56, 8)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass13" type="Area2D" parent="Overworld/Objects" unique_id=555017658]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass13" unique_id=1038212636]
+position = Vector2(-88, 40)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass14" type="Area2D" parent="Overworld/Objects" unique_id=2029892798]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass14" unique_id=1113023393]
+position = Vector2(-104, 40)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass15" type="Area2D" parent="Overworld/Objects" unique_id=1056552493]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass15" unique_id=741804837]
+position = Vector2(-120, 40)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass16" type="Area2D" parent="Overworld/Objects" unique_id=169452578]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass16" unique_id=1443306186]
+position = Vector2(-88, 24)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass17" type="Area2D" parent="Overworld/Objects" unique_id=1397524438]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass17" unique_id=1917344821]
+position = Vector2(-104, 24)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass18" type="Area2D" parent="Overworld/Objects" unique_id=339649848]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass18" unique_id=372218629]
+position = Vector2(-120, 24)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass19" type="Area2D" parent="Overworld/Objects" unique_id=561536082]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass19" unique_id=1616121855]
+position = Vector2(-88, 8)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass20" type="Area2D" parent="Overworld/Objects" unique_id=1195320642]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass20" unique_id=1777913382]
+position = Vector2(-104, 8)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass21" type="Area2D" parent="Overworld/Objects" unique_id=1300344690]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass21" unique_id=1334013525]
+position = Vector2(-120, 8)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass22" type="Area2D" parent="Overworld/Objects" unique_id=178680347]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass22" unique_id=1448599803]
+position = Vector2(-168, 40)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass23" type="Area2D" parent="Overworld/Objects" unique_id=1273127066]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass23" unique_id=1919740558]
+position = Vector2(-184, 40)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass24" type="Area2D" parent="Overworld/Objects" unique_id=492561378]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass24" unique_id=449524919]
+position = Vector2(-200, 40)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass25" type="Area2D" parent="Overworld/Objects" unique_id=102071237]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass25" unique_id=289381189]
+position = Vector2(-168, 24)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass26" type="Area2D" parent="Overworld/Objects" unique_id=714601177]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass26" unique_id=521535243]
+position = Vector2(-184, 24)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass27" type="Area2D" parent="Overworld/Objects" unique_id=1233591568]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass27" unique_id=1324690377]
+position = Vector2(-200, 24)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass28" type="Area2D" parent="Overworld/Objects" unique_id=2029336909]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass28" unique_id=66663801]
+position = Vector2(-168, 8)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass29" type="Area2D" parent="Overworld/Objects" unique_id=2131283860]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass29" unique_id=2017459670]
+position = Vector2(-184, 8)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Grass30" type="Area2D" parent="Overworld/Objects" unique_id=2000510112]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("12_dinhu")
+
+[node name="Collision" type="CollisionShape2D" parent="Overworld/Objects/Grass30" unique_id=1143934095]
+position = Vector2(-200, 8)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[connection signal="body_entered" from="Overworld/Objects/Grass1" to="Overworld/Objects/Grass1" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass1" to="Overworld/Objects/Grass1" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass2" to="Overworld/Objects/Grass2" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass2" to="Overworld/Objects/Grass2" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass3" to="Overworld/Objects/Grass3" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass3" to="Overworld/Objects/Grass3" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass4" to="Overworld/Objects/Grass4" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass4" to="Overworld/Objects/Grass4" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass5" to="Overworld/Objects/Grass5" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass5" to="Overworld/Objects/Grass5" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass6" to="Overworld/Objects/Grass6" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass6" to="Overworld/Objects/Grass6" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass7" to="Overworld/Objects/Grass7" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass7" to="Overworld/Objects/Grass7" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass8" to="Overworld/Objects/Grass8" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass8" to="Overworld/Objects/Grass8" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass9" to="Overworld/Objects/Grass9" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass9" to="Overworld/Objects/Grass9" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass10" to="Overworld/Objects/Grass10" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass10" to="Overworld/Objects/Grass10" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass11" to="Overworld/Objects/Grass11" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass11" to="Overworld/Objects/Grass11" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass12" to="Overworld/Objects/Grass12" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass12" to="Overworld/Objects/Grass12" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass13" to="Overworld/Objects/Grass13" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass13" to="Overworld/Objects/Grass13" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass14" to="Overworld/Objects/Grass14" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass14" to="Overworld/Objects/Grass14" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass15" to="Overworld/Objects/Grass15" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass15" to="Overworld/Objects/Grass15" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass16" to="Overworld/Objects/Grass16" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass16" to="Overworld/Objects/Grass16" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass17" to="Overworld/Objects/Grass17" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass17" to="Overworld/Objects/Grass17" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass18" to="Overworld/Objects/Grass18" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass18" to="Overworld/Objects/Grass18" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass19" to="Overworld/Objects/Grass19" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass19" to="Overworld/Objects/Grass19" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass20" to="Overworld/Objects/Grass20" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass20" to="Overworld/Objects/Grass20" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass21" to="Overworld/Objects/Grass21" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass21" to="Overworld/Objects/Grass21" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass22" to="Overworld/Objects/Grass22" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass22" to="Overworld/Objects/Grass22" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass23" to="Overworld/Objects/Grass23" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass23" to="Overworld/Objects/Grass23" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass24" to="Overworld/Objects/Grass24" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass24" to="Overworld/Objects/Grass24" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass25" to="Overworld/Objects/Grass25" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass25" to="Overworld/Objects/Grass25" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass26" to="Overworld/Objects/Grass26" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass26" to="Overworld/Objects/Grass26" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass27" to="Overworld/Objects/Grass27" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass27" to="Overworld/Objects/Grass27" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass28" to="Overworld/Objects/Grass28" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass28" to="Overworld/Objects/Grass28" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass29" to="Overworld/Objects/Grass29" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass29" to="Overworld/Objects/Grass29" method="_on_body_exited"]
+[connection signal="body_entered" from="Overworld/Objects/Grass30" to="Overworld/Objects/Grass30" method="_on_body_entered"]
+[connection signal="body_exited" from="Overworld/Objects/Grass30" to="Overworld/Objects/Grass30" method="_on_body_exited"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sjae4y2rqcd2"]
 
 [ext_resource type="Texture2D" uid="uid://c8chylnnwjair" path="res://assets/Pokemon/Pokemon90.png" id="1_pv8lr"]
-[ext_resource type="Script" uid="uid://bxqhsbq5s8fxy" path="res://scenes/freddo/proiettile_base_freddo.gd" id="1_qx5ed"]
+[ext_resource type="Script" uid="uid://bxqhsbq5s8fxy" path="res://scripts/proiettile_base_freddo.gd" id="1_qx5ed"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qx5ed"]
 radius = 7.0
